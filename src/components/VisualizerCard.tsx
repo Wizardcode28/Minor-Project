@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, Github } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ExternalLink, Github, Code2 } from 'lucide-react';
 import { Visualizer } from '../types';
 
 interface VisualizerCardProps {
@@ -8,72 +9,54 @@ interface VisualizerCardProps {
 
 const VisualizerCard: React.FC<VisualizerCardProps> = ({ visualizer }) => {
   return (
-    <div 
-      className="group bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:border-white/20"
+    <motion.div
+      whileHover={{ y: -8 }}
+      className="group relative bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
     >
-      <div className="aspect-video overflow-hidden relative">
-        <img 
-          src={visualizer.image} 
+      <div className="aspect-video relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+        <img
+          src={visualizer.image}
           alt={visualizer.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent transition-opacity duration-300"></div>
-        
-        <div className="absolute bottom-0 left-0 right-0 p-4">
-          <div className="flex flex-wrap gap-2">
-            {visualizer.tags.map((tag, index) => (
-              <span 
-                key={index} 
-                className="text-xs font-semibold px-2 py-1 rounded-full bg-white/10 backdrop-blur-md text-white/80"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+
+        <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {visualizer.github && (
+            <a
+              href={visualizer.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-white/90 backdrop-blur-md rounded-full text-slate-900 hover:bg-blue-600 hover:text-white transition-colors"
+              title="View Source"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+          )}
         </div>
       </div>
-      
-      <div className="p-5">
-        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+
+      <div className="p-6 relative z-10">
+        <h3 className="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+          <Code2 className="w-5 h-5 text-blue-500" />
           {visualizer.title}
         </h3>
-        
-        <p className="text-white/70 text-sm mb-4">
+
+        <p className="text-slate-600 text-sm mb-6 line-clamp-2">
           {visualizer.description}
         </p>
-        
-        {/* <div className="flex flex-wrap gap-4 mb-4 text-xs text-white/60">
-          <div className="flex items-center gap-1">
-            <Clock className="h-3.5 w-3.5" />
-            <span>Time: {visualizer.complexity.time}</span>
-          </div>
-          
-          <div className="flex items-center gap-1">
-            <HardDrive className="h-3.5 w-3.5" />
-            <span>Space: {visualizer.complexity.space}</span>
-          </div>
-        </div> */}
-        
-        <div className="flex items-center gap-4">
-          <a 
-            href={visualizer.url}
-            className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 font-medium text-sm group-hover:gap-2 transition-all"
-          >
-            View Visualizer <ArrowRight className="h-4 w-4" />
-          </a>
-          
-          <a 
-            href={visualizer.github}
-            className="inline-flex items-center gap-1 text-white/70 hover:text-white font-medium text-sm transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github className="h-4 w-4" />
-            Source
-          </a>
-        </div>
+
+        <a
+          href={visualizer.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center w-full gap-2 px-4 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-md group-hover:shadow-lg shadow-blue-500/20"
+        >
+          Launch Visualizer
+          <ExternalLink className="w-4 h-4" />
+        </a>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
