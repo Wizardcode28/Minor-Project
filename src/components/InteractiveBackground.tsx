@@ -5,11 +5,12 @@ import type { Container, Engine } from "tsparticles-engine";
 
 const InteractiveBackground: React.FC = () => {
     const particlesInit = useCallback(async (engine: Engine) => {
+        console.log("Particles Engine Loaded");
         await loadSlim(engine);
     }, []);
 
     return (
-        <div className="fixed inset-0 z-[-1]">
+        <div className="fixed inset-0 z-[-1] pointer-events-none">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50 animate-gradient" />
             <Particles
                 id="tsparticles"
@@ -30,7 +31,7 @@ const InteractiveBackground: React.FC = () => {
                             },
                             onHover: {
                                 enable: true,
-                                mode: "grab", // Changed to grab for better interaction
+                                mode: "grab",
                             },
                             resize: true,
                         },
@@ -39,7 +40,7 @@ const InteractiveBackground: React.FC = () => {
                                 quantity: 4,
                             },
                             grab: {
-                                distance: 140,
+                                distance: 200,
                                 links: {
                                     opacity: 0.5
                                 }
@@ -48,13 +49,13 @@ const InteractiveBackground: React.FC = () => {
                     },
                     particles: {
                         color: {
-                            value: "#0f172a", // Darker slate for better visibility
+                            value: "#4f46e5",
                         },
                         links: {
-                            color: "#0f172a",
+                            color: "#4f46e5",
                             distance: 150,
                             enable: true,
-                            opacity: 0.15,
+                            opacity: 0.4,
                             width: 1,
                         },
                         move: {
@@ -64,7 +65,7 @@ const InteractiveBackground: React.FC = () => {
                                 default: "bounce",
                             },
                             random: false,
-                            speed: 1.5, // Slightly faster
+                            speed: 2,
                             straight: false,
                         },
                         number: {
@@ -72,10 +73,10 @@ const InteractiveBackground: React.FC = () => {
                                 enable: true,
                                 area: 800,
                             },
-                            value: 80, // Increased density
+                            value: 100,
                         },
                         opacity: {
-                            value: 0.2,
+                            value: 0.5,
                         },
                         shape: {
                             type: "circle",
@@ -86,7 +87,7 @@ const InteractiveBackground: React.FC = () => {
                     },
                     detectRetina: true,
                 }}
-                className="w-full h-full"
+                className="absolute inset-0 z-10"
             />
         </div>
     );
