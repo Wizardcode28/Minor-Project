@@ -27,7 +27,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ title, visualizers, i
                 <div className="h-[1px] flex-1 bg-slate-200" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {visualizers.map((viz, idx) => (
                     <motion.div
                         key={viz.id}
@@ -35,6 +35,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ title, visualizers, i
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: idx * 0.1 }}
+                        className="w-full max-w-md mx-auto"
                     >
                         <VisualizerCard visualizer={viz} />
                     </motion.div>

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Code2, ChevronDown } from 'lucide-react';
-import { categories } from '../data/visualizers';
+import { Menu, X } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,22 +17,18 @@ const Navbar: React.FC = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const toggleDropdown = (category: string) => {
-    setActiveDropdown(activeDropdown === category ? null : category);
-  };
-
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-white/80 backdrop-blur-md shadow-sm py-3'
-          : 'bg-transparent py-5'
+        ? 'bg-white/80 backdrop-blur-md shadow-sm py-3'
+        : 'bg-transparent py-5'
         }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 text-slate-900">
-            <Code2 className="h-7 w-7 text-blue-600" />
+            <img src={logo} alt="AlgoViz Logo" className="h-10 w-auto" />
             <span className="text-xl font-bold">AlgoViz</span>
           </a>
 
@@ -46,30 +41,12 @@ const Navbar: React.FC = () => {
               Home
             </a>
 
-            <div className="relative group">
-              <button
-                onClick={() => toggleDropdown('algorithms')}
-                className="flex items-center gap-1 text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium"
-              >
-                Algorithms
-                <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === 'algorithms' ? 'rotate-180' : ''}`} />
-              </button>
-
-              <div className={`absolute left-0 top-full bg-white/90 backdrop-blur-md p-3 rounded-lg shadow-xl border border-slate-100 mt-2 w-56 transition-all duration-200 ${activeDropdown === 'algorithms' ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
-                <div className="flex flex-col gap-1.5">
-                  {categories.map(category => (
-                    <a
-                      key={category.id}
-                      href={`#${category.id}`}
-                      className="text-sm text-slate-600 hover:text-blue-600 hover:bg-slate-50 px-3 py-2 rounded-md transition-colors"
-                      onClick={() => setActiveDropdown(null)}
-                    >
-                      {category.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <a
+              href="#algorithms"
+              className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium"
+            >
+              Algorithms
+            </a>
 
             <a
               href="#about"
@@ -93,8 +70,8 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu */}
       <div
         className={`md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-slate-100 transition-all duration-300 ${isOpen
-            ? 'max-h-screen opacity-100'
-            : 'max-h-0 opacity-0 pointer-events-none'
+          ? 'max-h-screen opacity-100'
+          : 'max-h-0 opacity-0 pointer-events-none'
           } overflow-hidden`}
       >
         <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
@@ -106,30 +83,13 @@ const Navbar: React.FC = () => {
             Home
           </a>
 
-          <div>
-            <button
-              onClick={() => toggleDropdown('mobileAlgorithms')}
-              className="flex items-center justify-between w-full text-slate-600 hover:text-blue-600 py-2 transition-colors"
-            >
-              <span>Algorithms</span>
-              <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === 'mobileAlgorithms' ? 'rotate-180' : ''}`} />
-            </button>
-
-            <div className={`overflow-hidden transition-all duration-200 ${activeDropdown === 'mobileAlgorithms' ? 'max-h-60' : 'max-h-0'}`}>
-              <div className="flex flex-col gap-1 pl-4 py-2">
-                {categories.map(category => (
-                  <a
-                    key={category.id}
-                    href={`#${category.id}`}
-                    className="text-sm text-slate-500 hover:text-blue-600 py-2 transition-colors"
-                    onClick={toggleMenu}
-                  >
-                    {category.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+          <a
+            href="#algorithms"
+            className="text-slate-600 hover:text-blue-600 py-2 transition-colors"
+            onClick={toggleMenu}
+          >
+            Algorithms
+          </a>
 
           <a
             href="#about"

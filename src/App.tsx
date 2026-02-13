@@ -5,7 +5,7 @@ import ModernHero from './components/ModernHero';
 import CategorySection from './components/CategorySection';
 import AboutSection from './components/About';
 import Footer from './components/Footer';
-import { categories, getVisualizersByCategory } from './data/visualizers';
+import { getVisualizers } from './data/visualizers';
 
 function App() {
   // Update document title
@@ -26,15 +26,12 @@ function App() {
       <ModernHero />
 
       <main id="visualizers-section" className="relative z-10 container mx-auto px-4 py-20">
-        {categories.map((category, index) => (
-          <CategorySection
-            key={category.id}
-            id={category.id}
-            title={category.name}
-            visualizers={getVisualizersByCategory(category.id as any)}
-            index={index}
-          />
-        ))}
+        <CategorySection
+          id="algorithms"
+          title="All Algorithms"
+          visualizers={getVisualizers()}
+          index={0}
+        />
 
         <AboutSection />
       </main>

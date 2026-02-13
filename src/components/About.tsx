@@ -22,7 +22,7 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden">
+    <section id="about" className="relative py-12 overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-indigo-50/80 rounded-full blur-[120px] pointer-events-none -z-10" />
 
@@ -31,7 +31,7 @@ const AboutSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-3xl mx-auto mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
             Why AlgoViz?
@@ -41,7 +41,7 @@ const AboutSection: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -62,32 +62,7 @@ const AboutSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Call to Action Box */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="relative rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-600 shadow-2xl shadow-blue-500/30 p-12 text-center overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-grid-white/[0.1] bg-[size:32px_32px]" />
-          <div className="relative z-10">
-            <Globe className="w-12 h-12 text-white/50 mx-auto mb-6" />
-            <h3 className="text-3xl font-bold text-white mb-4">Open Source & Community Driven</h3>
-            <p className="text-blue-100 max-w-2xl mx-auto mb-8">
-              Join our community of developers. Contribute new algorithms, fix bugs, or improve visualizations.
-              The code is open for everyone.
-            </p>
-            <a
-              href="https://github.com/Wizardcode28"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-900 rounded-full font-bold hover:bg-blue-50 transition-colors shadow-lg"
-            >
-              <GitBranch className="w-5 h-5" />
-              View on GitHub
-            </a>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );
