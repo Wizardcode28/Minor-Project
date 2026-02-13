@@ -30,6 +30,9 @@ export default {
           900: '#4c1d95',
         },
       },
+      fontFamily: {
+        sans: ['Outfit', 'sans-serif'],
+      },
       animation: {
         blob: 'blob 7s infinite',
       },
