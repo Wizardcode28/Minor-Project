@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { useTypewriter } from '../hooks/useTypewriter';
 
 const ModernHero: React.FC = () => {
     const scrollToContent = () => {
@@ -9,6 +10,8 @@ const ModernHero: React.FC = () => {
             content.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    const { displayText } = useTypewriter("Master Algorithms", 100, 500);
 
     return (
         <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 py-20 overflow-hidden">
@@ -28,8 +31,9 @@ const ModernHero: React.FC = () => {
                     <span className="text-sm font-medium text-blue-700">Next Gen Algorithm Visualization</span>
                 </motion.div>
 
-                <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-8 text-slate-900">
-                    <span className="text-slate-900 drop-shadow-sm">Master Algorithms</span>
+                <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-8 text-slate-900 leading-tight">
+                    <span className="text-indigo-950 drop-shadow-sm">{displayText}</span>
+                    <span className="inline-block w-[3px] h-[0.8em] bg-blue-600 animate-pulse ml-1 align-middle"></span>
                     <br />
                     <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-transparent bg-clip-text drop-shadow-sm">
                         Visually

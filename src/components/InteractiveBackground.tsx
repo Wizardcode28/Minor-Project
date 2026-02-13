@@ -10,7 +10,7 @@ const InteractiveBackground: React.FC = () => {
 
     return (
         <div className="fixed inset-0 z-[-1]">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-slate-100" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50 animate-gradient" />
             <Particles
                 id="tsparticles"
                 init={particlesInit}
@@ -30,7 +30,7 @@ const InteractiveBackground: React.FC = () => {
                             },
                             onHover: {
                                 enable: true,
-                                mode: "repulse",
+                                mode: "grab", // Changed to grab for better interaction
                             },
                             resize: true,
                         },
@@ -38,21 +38,23 @@ const InteractiveBackground: React.FC = () => {
                             push: {
                                 quantity: 4,
                             },
-                            repulse: {
-                                distance: 100,
-                                duration: 0.4,
+                            grab: {
+                                distance: 140,
+                                links: {
+                                    opacity: 0.5
+                                }
                             },
                         },
                     },
                     particles: {
                         color: {
-                            value: "#ffffff",
+                            value: "#0f172a", // Darker slate for better visibility
                         },
                         links: {
-                            color: "#ffffff",
+                            color: "#0f172a",
                             distance: 150,
                             enable: true,
-                            opacity: 0.2, // Subtle links
+                            opacity: 0.15,
                             width: 1,
                         },
                         move: {
@@ -62,7 +64,7 @@ const InteractiveBackground: React.FC = () => {
                                 default: "bounce",
                             },
                             random: false,
-                            speed: 1, // Slow movement
+                            speed: 1.5, // Slightly faster
                             straight: false,
                         },
                         number: {
@@ -70,10 +72,10 @@ const InteractiveBackground: React.FC = () => {
                                 enable: true,
                                 area: 800,
                             },
-                            value: 60, // Not too crowded
+                            value: 80, // Increased density
                         },
                         opacity: {
-                            value: 0.3, // Subtle particles
+                            value: 0.2,
                         },
                         shape: {
                             type: "circle",
