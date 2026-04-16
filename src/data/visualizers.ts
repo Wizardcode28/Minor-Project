@@ -4,6 +4,7 @@ import linkedListImg from '../assets/images/linkedlist.png';
 import stackImg from '../assets/images/stacks.png';
 import treeImg from '../assets/images/trees.png';
 import graphImg from '../assets/images/graph.png';
+import relationImage from '../assets/images/relationalImage.jpg';
 
 export const visualizers: Visualizer[] = [
   {
@@ -15,6 +16,16 @@ export const visualizers: Visualizer[] = [
     github: 'https://github.com/Wizardcode28/radix-explorer',
     category: 'sorting',
     tags: ['sorting', 'comparison', 'beginner']
+  },
+  {
+    id: 'relation-algebra-to-sql',
+    title: 'Relation Algebra to SQL',
+    description: 'Visualization of Relational Algebra to SQL with step-by-step animation',
+    image: relationImage, 
+    url: 'https://relational-to-sql-two.vercel.app/',
+    github: 'https://github.com/Nisarg-patel-2410/relational_to_SQL',
+    category: 'relation-algebra',
+    tags: ['relation-algebra', 'sql', 'beginner']
   },
 
   {

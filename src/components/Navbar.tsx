@@ -27,10 +27,13 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 text-slate-900">
-            <img src={logo} alt="AlgoViz Logo" className="h-10 w-auto" />
-            <span className="text-xl font-bold">AlgoViz</span>
+          <a href="/" className="flex items-center gap-2">
+            <img src={logo} alt="AlgoViz Logo" className="h-14 w-auto" />
+            <span className="bg-gradient-to-r from-blue-600 to-pink-600 bg-clip-text text-transparent text-3xl font-bold">
+              AlgoViz
+            </span>
           </a>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
