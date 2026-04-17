@@ -5,6 +5,7 @@ import stackImg from '../assets/images/stacks.png';
 import treeImg from '../assets/images/trees.png';
 import graphImg from '../assets/images/graph.png';
 import relationImage from '../assets/images/relationalImage.jpg';
+import btreeImg from '../assets/images/btree.png';
 
 export const visualizers: Visualizer[] = [
   {
@@ -18,10 +19,20 @@ export const visualizers: Visualizer[] = [
     tags: ['sorting', 'comparison', 'beginner']
   },
   {
+    id: 'B Tree and B+ Tree',
+    title: 'B Tree and B+ Tree Visualizer',
+    description: 'Visualization of B Tree and B+ Tree with step-by-step animation',
+    image: btreeImg,
+    url: 'https://b-tree-visualizer-chi.vercel.app/',
+    github: 'https://github.com/Wizardcode28/B-Tree-Visualizer',
+    category: 'sorting',
+    tags: ['btree', 'b+Tree', 'insertion','deletion']
+  },
+  {
     id: 'relation-algebra-to-sql',
     title: 'Relation Algebra to SQL',
     description: 'Visualization of Relational Algebra to SQL with step-by-step animation',
-    image: relationImage, 
+    image: relationImage,
     url: 'https://relational-to-sql-two.vercel.app/',
     github: 'https://github.com/Nisarg-patel-2410/relational_to_SQL',
     category: 'relation-algebra',
@@ -55,8 +66,8 @@ export const visualizers: Visualizer[] = [
     title: 'BST and AVL traversal and Construction',
     description: 'Visualization of different binary tree traversal methods and Construction',
     image: treeImg, // Fractal/Tree branches
-    url: 'https://gleaming-brigadeiros-22c7d5.netlify.app/',
-    github: 'https://github.com/',
+    url: 'https://bstavltree.vercel.app/',
+    github: 'https://github.com/Aryan11168/BSTAVL-TREE-Module',
     category: 'tree',
     tags: ['tree', 'traversal', 'recursive']
   },
