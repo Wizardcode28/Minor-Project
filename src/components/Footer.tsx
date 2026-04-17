@@ -25,10 +25,10 @@ const Footer: React.FC = () => {
             </p>
             <div className="space-y-3">
               <p className="text-slate-900 font-bold border-b border-slate-100 pb-2 inline-block">Student Team:</p>
-              <ul className="space-y-1.5">
+              <ul className="space-y-2">
                 {studentTeam.map((name, index) => (
-                  <li key={index} className="text-cyan-700 flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-blue-400"></div>
+                  <li key={index} className="text-cyan-700 text-lg font-bold flex items-center gap-3 transition-colors hover:text-cyan-800">
+                    <div className="h-2 w-2 rounded-full bg-blue-500"></div>
                     {name}
                   </li>
                 ))}
@@ -98,6 +98,19 @@ const Footer: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Bug Reporting Highlight */}
+        <div className="mb-8 bg-amber-50 border border-amber-200 rounded-xl p-4 text-center hover:shadow-sm transition-all duration-300 mx-auto max-w-4xl">
+          <p className="text-amber-800 text-sm font-medium flex items-center justify-center gap-2 flex-wrap">
+            <span className="text-amber-600">🐛</span> 
+            <span>
+              For reporting any bugs for the website, please contact at either of these emails:{' '}
+              <a href="mailto:sahuashishcs@gmail.com" className="font-bold text-amber-900 hover:text-amber-600 hover:underline transition-colors">sahuashishcs@gmail.com</a>
+              {' '}or{' '}
+              <a href="mailto:ashish.sahu@manit.ac.in" className="font-bold text-amber-900 hover:text-amber-600 hover:underline transition-colors">ashish.sahu@manit.ac.in</a>
+            </span>
+          </p>
         </div>
 
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
